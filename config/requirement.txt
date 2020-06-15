@@ -1,0 +1,9 @@
+统一安装命令：pip install -r requirement.txt
+unittest
+html-testRunner
+pytest
+pytest-xdist
+pytest-rerunfailures
+pytest-html
+allure-pytest
+

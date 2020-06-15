@@ -8,7 +8,7 @@ curPath = os.path.abspath(os.path.dirname(__file__))
 
 suite = unittest.TestSuite()
 suite.addTests(unittest.TestLoader().loadTestsFromTestCase(TestCase))
-dir = curPath+"../../config/report/report.html"
+dir = curPath+"../../config/report/htmltestrunner_report.html"
 
 with open(dir,'wb')as file:
     runner = HTMLTestRunner(stream=file, title="特斯汀商城測試報告", description="特斯汀商城web测试")

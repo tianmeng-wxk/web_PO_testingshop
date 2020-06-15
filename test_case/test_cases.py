@@ -1,19 +1,20 @@
 import os
 import sys
-
+#添加系统路径
+curPath = os.path.abspath(os.path.dirname(__file__))
+rootPath = os.path.split(curPath)[0]
+sys.path.append(rootPath)
+sys.path.append("../")
+print("系统路径{}".format(sys.path))
 from common import Logger,browser_type
 from xlrd读取文件.read_eg import ReadExcel
-import unittest
+import unittest,pytest
 from selenium import webdriver
 from time import sleep
 from ddt import ddt, data, file_data, unpack
 from PageObject.login_page import LoginPage
 from PageObject.search_page import SearchPage
-#添加路径
-curPath = os.path.abspath(os.path.dirname(__file__))
-rootPath = os.path.split(curPath)[0]
-sys.path.append(rootPath)
-sys.path.append('E:\\pycharm')
+
 
 
 excel_path = curPath+"../../config/testingdata.xlsx"
@@ -53,6 +54,7 @@ class TestCase(unittest.TestCase):
     #     TestCase.index+=1
 
     #搜索模块
+    @pytest.mark.smoke
     @file_data('data.yaml')
     def test_2_search(self, **kwargs):
         searchtext = kwargs['search']["text"]
@@ -62,7 +64,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(self.sp.get_search_text(), varidata, msg="搜索失败")
         self.logger.log().info("搜索内容为{}，验证内容为{}，实际结果为{}".format(searchtext, varidata,self.sp.get_search_text()))
 if __name__ == '__main__':
-    unittest.main()
+    pytest.main()
 
 
 

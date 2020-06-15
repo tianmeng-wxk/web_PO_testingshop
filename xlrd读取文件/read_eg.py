@@ -26,7 +26,9 @@ class ReadExcel:
              return list
 
 if __name__ == '__main__':
-    excel_path = "C:/Users/Administrator/Desktop/testingdata.xlsx"
+    import os
+    curPath = os.path.abspath(os.path.dirname(__file__))
+    excel_path = curPath+"../../config/testingdata.xlsx"
     sheet_name = "Sheet1"
     data = ReadExcel(excel_path, sheet_name)
     print(data.dict_data())
