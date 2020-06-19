@@ -7,7 +7,7 @@ sys.path.append(rootPath)
 sys.path.append("../")
 print("系统路径{}".format(sys.path))
 from common import Logger,browser_type
-from xlrd读取文件.read_eg import ReadExcel
+from xlrd_readfile.read_eg import ReadExcel
 import unittest,pytest
 from selenium import webdriver
 from time import sleep
@@ -55,7 +55,7 @@ class TestCase(unittest.TestCase):
 
     #搜索模块
     @pytest.mark.smoke
-    @file_data('data.yaml')
+    @file_data(curPath+'../../config/data.yaml')
     def test_2_search(self, **kwargs):
         searchtext = kwargs['search']["text"]
         varidata = kwargs["varidata"]
