@@ -6,4 +6,5 @@ pytest-xdist
 pytest-rerunfailures
 pytest-html
 allure-pytest
+PyYaml
 

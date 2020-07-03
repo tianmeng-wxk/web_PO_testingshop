@@ -1,4 +1,4 @@
-from PIL import Image
+#from PIL import Image
 import requests,logging,time
 import yaml
 from selenium import webdriver
