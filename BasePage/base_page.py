@@ -1,4 +1,3 @@
-from 通过cookie绕过登录 import get_cookie
 class BasePage(object):
 
     def __init__(self, driver,url):

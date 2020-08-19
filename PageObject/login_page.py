@@ -3,11 +3,8 @@ from BasePage.base_page import BasePage
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
+from common.common import ivercode,ivercode2
 
-from common import ivercode,ivercode2
-# from PIL import Image
-# import pytesseract
-# import requests
 
 class LoginPage(BasePage):
 

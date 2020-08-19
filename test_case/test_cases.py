@@ -4,10 +4,8 @@ import sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 rootPath = os.path.split(curPath)[0]
 sys.path.append(rootPath)
-sys.path.append("../")
-print("系统路径{}".format(sys.path))
-from common import Logger,browser_type
-from xlrd_readfile.read_eg import ReadExcel
+from common.common import Logger,browser_type
+from common.common import ReadExcel
 import unittest,pytest
 from selenium import webdriver
 from time import sleep
@@ -17,10 +15,10 @@ from PageObject.search_page import SearchPage
 
 
 
-excel_path = curPath+"../../config/testingdata.xlsx"
-sheet_name = "Sheet1"
-excel_data = ReadExcel(excel_path, sheet_name)
+excel_data = ReadExcel("../config/testingdata.xlsx", "Sheet1")
 test_data = excel_data.dict_data()
+
+
 @ddt
 class TestCase(unittest.TestCase):
     index = 1
@@ -54,8 +52,7 @@ class TestCase(unittest.TestCase):
     #     TestCase.index+=1
 
     #搜索模块
-    @pytest.mark.smoke
-    @file_data(curPath+'../../config/data.yaml')
+    @file_data('../config/data.yaml')
     def test_2_search(self, **kwargs):
         searchtext = kwargs['search']["text"]
         varidata = kwargs["varidata"]
@@ -64,7 +61,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(self.sp.get_search_text(), varidata, msg="搜索失败")
         self.logger.log().info("搜索内容为{}，验证内容为{}，实际结果为{}".format(searchtext, varidata,self.sp.get_search_text()))
 if __name__ == '__main__':
-    pytest.main()
+    unittest.main()
 
 
 
