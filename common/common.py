@@ -116,7 +116,7 @@ def send_mail(email_path):
     password = "lizceyidpekpdbhd"
     receiver = "tianmeng_wxk@163.com"
     message = MIMEText(content, "HTML", "UTF-8")
-    message["Subject"] = "shopxo商城web自动化测试"
+    message["Subject"] = "特斯汀商城web自动化测试"
     message["From"] = sender
     message["To"] = receiver
     try:
